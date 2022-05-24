@@ -52,9 +52,7 @@ public class MazeRotation : MonoBehaviour
     {
         transform.Rotate(rotationDir * rotationSpeed * Time.deltaTime);
         currentAngleX = (rotationDir.x * rotationSpeed * Time.deltaTime);
-        transform.rotation = Quaternion.Euler(transform.eulerAngles.x, 90, transform.eulerAngles.y);
-      
+        transform.rotation = Quaternion.Euler(transform.eulerAngles.x, 90, transform.eulerAngles.y);      
     }
-
 }
 
