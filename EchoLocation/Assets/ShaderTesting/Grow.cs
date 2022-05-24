@@ -23,7 +23,6 @@ public class Grow : MonoBehaviour
     {
         oldIntensity = lightScaler.lightComp.intensity;
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -38,11 +37,16 @@ public class Grow : MonoBehaviour
                     float scale = 1 - (1 - timer) * (1 - timer);
                     this.transform.localScale = new Vector3(scale, scale, scale);
                     lightScaler.lightComp.intensity = oldIntensity;
+                    this.GetComponent<MeshRenderer>().enabled = true;
                     startFading = false;
                 }
             }
             else
+            {
                 Invoke("linger", lingerDuration);
+                this.GetComponent<MeshRenderer>().enabled = false;
+            }
+            
         
         }
         else
@@ -52,7 +56,6 @@ public class Grow : MonoBehaviour
             this.transform.localScale = new Vector3(timer, timer, timer);
         }
     }
-
     void linger()
     {
         startFading = true;
