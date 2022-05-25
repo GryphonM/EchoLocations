@@ -17,43 +17,42 @@ public class Grow : MonoBehaviour
     float timer;
     float timer2;
     float oldIntensity;
+    float startSize;
     bool startFading = false;
     // Start is called before the first frame update
     void Start()
     {
         oldIntensity = lightScaler.lightComp.intensity;
+        startSize = transform.localScale.x;
     }
     // Update is called once per frame
     void Update()
     {
-        if (this.transform.localScale.x >= finalSize)
+        if (startFading)
         {
-            if (startFading)
+            lightScaler.scalar = timer;
+            timer -= Time.deltaTime * dimSpeed;
+            transform.localScale = new Vector3(timer, timer, timer);
+            if (transform.localScale.x <= startSize)
             {
-                lightScaler.lightComp.intensity = lightScaler.lightComp.intensity * dimSpeed;
-                if (lightScaler.lightComp.intensity <= 0.1)
-                {
-                    timer = 0;
-                    float scale = 1 - (1 - timer) * (1 - timer);
-                    this.transform.localScale = new Vector3(scale, scale, scale);
-                    lightScaler.lightComp.intensity = oldIntensity;
-                    //this.GetComponent<MeshRenderer>().enabled = true;
-                    startFading = false;
-                }
+                timer = 0;
+                transform.localScale = new Vector3(startSize, startSize, startSize);
+                lightScaler.lightComp.intensity = oldIntensity;
+                startFading = false;
             }
-            else
-            {
-                Invoke("linger", lingerDuration);
-                //this.GetComponent<MeshRenderer>().enabled = false;
-            }
-            
-        
         }
         else
         {
-            lightScaler.scalar = timer;
-            timer += Time.deltaTime * speed;
-            this.transform.localScale = new Vector3(timer, timer, timer);
+            if (this.transform.localScale.x >= finalSize)
+            {
+                Invoke("linger", lingerDuration);
+            }
+            else
+            {
+                lightScaler.scalar = timer;
+                timer += Time.deltaTime * speed;
+                this.transform.localScale = new Vector3(timer, timer, timer);
+            }
         }
     }
     void linger()
