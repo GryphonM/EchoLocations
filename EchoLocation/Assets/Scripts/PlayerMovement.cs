@@ -37,15 +37,15 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 rotation = Camera.transform.rotation.eulerAngles;
         if (invertY)
-            rotation.x += YInput * lookSpeed;
+            rotation.x += YInput;
         else
-            rotation.x += -YInput * lookSpeed;
+            rotation.x += -YInput;
         if (invertY)
-            rotation.y += -XInput * lookSpeed;
+            rotation.y += -XInput;
         else
-            rotation.y += XInput * lookSpeed;
+            rotation.y += XInput;
         rotation.z = 0;
-        Camera.transform.rotation = Quaternion.Euler(rotation);
+        Camera.transform.rotation = Quaternion.Euler(rotation * lookSpeed * Time.deltaTime);
     }
 
     void MovePlayer()

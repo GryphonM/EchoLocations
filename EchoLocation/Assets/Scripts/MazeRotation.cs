@@ -11,10 +11,12 @@ public class MazeRotation : MonoBehaviour
     [SerializeField]
     Vector3 rotationDir;
     float currentAngleX = 0;
+    float currentAngleZ = 0;
+    float originalY;
     // Start is called before the first frame update
     void Start()
     {
-        
+        originalY = transform.root.eulerAngles.y;
     }
 
     // Update is called once per frame
@@ -26,33 +28,34 @@ public class MazeRotation : MonoBehaviour
 
     void getInput()
     { 
-        rotationDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        rotationDir = new Vector3(-Input.GetAxisRaw("Horizontal"), 0, -Input.GetAxisRaw("Vertical"));
         //clamp x rot
         if (currentAngleX > maxAngle)
         {
-            rotationDir = new Vector3(Mathf.Clamp(rotationDir.x, -1, 0), rotationDir.y, rotationDir.z);
+            rotationDir.x = Mathf.Clamp(rotationDir.x, -1, 0);
         }
-        else if (currentAngleX < -maxAngle)
+        if (currentAngleX < -maxAngle)
         {
-            rotationDir = new Vector3(Mathf.Clamp(rotationDir.x, 0, 1), rotationDir.y, rotationDir.z);
+            rotationDir.x = Mathf.Clamp(rotationDir.x, 0, 1);
         }
 
         //clamp z rot
-        if (transform.rotation.eulerAngles.z > maxAngle)
+        if (currentAngleZ > maxAngle)
         {
-            rotationDir = new Vector3(Mathf.Clamp(rotationDir.x, -1, 0), rotationDir.y, rotationDir.z);
+            rotationDir.z = Mathf.Clamp(rotationDir.z, -1, 0);
         }
-        else if (transform.rotation.eulerAngles.z < -maxAngle)
+        if (currentAngleZ < -maxAngle)
         {
-            rotationDir = new Vector3(Mathf.Clamp(rotationDir.x, 0, 1), rotationDir.y, rotationDir.z);
+            rotationDir.z = Mathf.Clamp(rotationDir.z, 0, 1);
         }
     }
 
     void rotateObject()
     {
         transform.Rotate(rotationDir * rotationSpeed * Time.deltaTime);
-        currentAngleX = (rotationDir.x * rotationSpeed * Time.deltaTime);
-        transform.rotation = Quaternion.Euler(transform.eulerAngles.x, 90, transform.eulerAngles.y);      
+        currentAngleX += (rotationDir.x * rotationSpeed * Time.deltaTime);
+        currentAngleZ += (rotationDir.z * rotationSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Euler(transform.eulerAngles.x, originalY, transform.eulerAngles.z);
     }
 }
 
