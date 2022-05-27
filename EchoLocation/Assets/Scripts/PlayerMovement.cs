@@ -14,13 +14,14 @@ public class PlayerMovement : MonoBehaviour
     GameObject Camera;
 
     Rigidbody myRB;
-
+    Vector2 rotation;
 
     // Start is called before the first frame update
     void Start()
     {
         myRB = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
+        rotation = new Vector2(transform.rotation.x, Camera.transform.rotation.y);
     }
 
     // Update is called once per frame
@@ -32,10 +33,10 @@ public class PlayerMovement : MonoBehaviour
 
     void MoveCamera()
     {
-        float XInput = Input.GetAxis("Mouse X");
-        float YInput = Input.GetAxis("Mouse Y");
+        float XInput = Input.GetAxis("Mouse X") * lookSpeed;
+        float YInput = Input.GetAxis("Mouse Y") * lookSpeed;
 
-        Vector3 rotation = Camera.transform.rotation.eulerAngles;
+        //Vector3 rotation = Camera.transform.rotation.eulerAngles;
         if (invertY)
             rotation.x += YInput;
         else
@@ -44,12 +45,15 @@ public class PlayerMovement : MonoBehaviour
             rotation.y += -XInput;
         else
             rotation.y += XInput;
-        rotation.z = 0;
-        Camera.transform.rotation = Quaternion.Euler(rotation * lookSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Euler(new Vector3(0, rotation.y, 0));
+        Camera.transform.localRotation = Quaternion.Euler(new Vector3(rotation.x, 0, 0));
     }
 
     void MovePlayer()
     {
-
+        Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        input *= Time.deltaTime * speed;
+        input = transform.TransformDirection(input);
+        myRB.position += input;
     }
 }
