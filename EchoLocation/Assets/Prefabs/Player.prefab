@@ -126,11 +126,11 @@ MonoBehaviour:
   finalSize: 5
   lingerDuration: 0.2
   dimSpeed: 2
-  staffTap: {fileID: 0}
-  staffSpeed: 9
-  staffFinalSize: 10
-  staffLingerDuration: 0.2
-  staffDimSpeed: 8
+  staffTap: {fileID: 8300000, guid: 9ede2605977487645ade9f25a16f0bde, type: 3}
+  staffSpeed: 20
+  staffFinalSize: 15
+  staffLingerDuration: 0.3
+  staffDimSpeed: 12
 --- !u!114 &9132965442364551818
 MonoBehaviour:
   m_ObjectHideFlags: 0
