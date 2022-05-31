@@ -10,6 +10,9 @@ public class PlayerMovement : MonoBehaviour
     bool invertY;
     [SerializeField]
     bool invertX;
+
+    [Space(10)]
+
     [SerializeField]
     float minStepTime;
     [SerializeField]

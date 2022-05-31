@@ -115,12 +115,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abdeddf8d2cecca4c9c4b638d55f0472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClips: []
-  soundSource: {fileID: 0}
-  speed: 1
-  finalSize: 1
-  lingerDuration: 1
-  dimSpeed: 1
+  audioClips:
+  - {fileID: 8300000, guid: c95711253038769499e0bc2c7aca057e, type: 3}
+  - {fileID: 8300000, guid: 767505ae06078b745a62f0f099052ff5, type: 3}
+  - {fileID: 8300000, guid: c23fc9c97a7fa794e899f410aa683902, type: 3}
+  - {fileID: 8300000, guid: e4fe0de6c3607bc4aa5c28b8905ac4fa, type: 3}
+  - {fileID: 8300000, guid: c9cf1540b4866ee41a37cb619fc8f39b, type: 3}
+  soundSource: {fileID: 2395526724093463797, guid: 83d54f6afae5fdb49aa8de9e56f44810, type: 3}
+  speed: 10
+  finalSize: 5
+  lingerDuration: 0.2
+  dimSpeed: 2
+  staffTap: {fileID: 0}
+  staffSpeed: 9
+  staffFinalSize: 10
+  staffLingerDuration: 0.2
+  staffDimSpeed: 8
 --- !u!114 &9132965442364551818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,6 +149,7 @@ MonoBehaviour:
   invertX: 0
   minStepTime: 0.1
   maxStepTime: 0.5
+  staffKey: 323
   Camera: {fileID: 9132965442390003811}
   hasShoes: 0
   hasStaff: 0
