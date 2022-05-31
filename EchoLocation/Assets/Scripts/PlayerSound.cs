@@ -20,7 +20,9 @@ public class PlayerSound : SoundPlayer
     public void PlayFootstep()
     {
         GameObject sound = Instantiate(soundSource, transform);
-        sound.transform.position = transform.position;
+        Vector3 pos = transform.position;
+        pos.y -= transform.localScale.y;
+        sound.transform.position = pos;
         sound.GetComponent<AudioSource>().PlayOneShot(audioClips[Random.Range(0, audioClips.Count - 1)]);
         sound.GetComponent<Grow>().speed = speed;
         sound.GetComponent<Grow>().finalSize = finalSize;
@@ -31,7 +33,9 @@ public class PlayerSound : SoundPlayer
     public void PlayTap()
     {
         GameObject sound = Instantiate(soundSource);
-        sound.transform.position = transform.position;
+        Vector3 pos = transform.position;
+        pos.y -= transform.localScale.y;
+        sound.transform.position = pos;
         sound.GetComponent<AudioSource>().PlayOneShot(staffTap);
         sound.GetComponent<Grow>().speed = staffSpeed;
         sound.GetComponent<Grow>().finalSize = staffFinalSize;
