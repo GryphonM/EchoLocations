@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9132965442364551823}
   - component: {fileID: 9132965442364551822}
   - component: {fileID: 9132965442364551809}
+  - component: {fileID: 8374855635872333151}
   - component: {fileID: 9132965442364551818}
   - component: {fileID: 9132965442364551821}
   - component: {fileID: 9132965442364551819}
@@ -102,6 +103,24 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8374855635872333151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9132965442364551808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abdeddf8d2cecca4c9c4b638d55f0472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips: []
+  soundSource: {fileID: 0}
+  speed: 1
+  finalSize: 1
+  lingerDuration: 1
+  dimSpeed: 1
 --- !u!114 &9132965442364551818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,7 +137,11 @@ MonoBehaviour:
   lookSpeed: 2.5
   invertY: 0
   invertX: 0
+  minStepTime: 0.1
+  maxStepTime: 0.5
   Camera: {fileID: 9132965442390003811}
+  hasShoes: 0
+  hasStaff: 0
 --- !u!54 &9132965442364551821
 Rigidbody:
   m_ObjectHideFlags: 0

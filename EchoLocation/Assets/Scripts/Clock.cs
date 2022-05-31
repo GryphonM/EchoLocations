@@ -6,6 +6,9 @@ public class Clock : MonoBehaviour
 {
     [SerializeField]
     float tick = 1.0f;
+    [Tooltip("Does the clock start with a full tick or at 0?")]
+    [SerializeField]
+    bool startFull;
 
     float timer;
     SoundPlayer player;
@@ -13,7 +16,10 @@ public class Clock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timer = tick;
+        if (startFull)
+            timer = tick;
+        else
+            timer = 0;
         player = GetComponent<SoundPlayer>();
     }
 

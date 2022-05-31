@@ -11,20 +11,30 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     bool invertX;
     [SerializeField]
+    float minStepTime;
+    [SerializeField]
+    float maxStepTime;
+    [SerializeField]
+    KeyCode staffKey = KeyCode.Mouse0;
+    [SerializeField]
     GameObject Camera;
+
+    public bool hasShoes;
+    public bool hasStaff;
 
     Rigidbody myRB;
     Vector2 rotation;
-    AudioSource source;
-    bool startedAudio = false;
+    PlayerSound source;
+    float stepTimer;
 
     // Start is called before the first frame update
     void Start()
     {
         myRB = GetComponent<Rigidbody>();
-        source = GetComponent<AudioSource>();
+        source = GetComponent<PlayerSound>();
         Cursor.lockState = CursorLockMode.Locked;
         rotation = new Vector2(transform.rotation.x, Camera.transform.rotation.y);
+        stepTimer = Random.Range(minStepTime, maxStepTime);
     }
 
     // Update is called once per frame
@@ -32,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     {
         MoveCamera();
         MovePlayer();
+        Staff();
     }
 
     void MoveCamera()
@@ -60,17 +71,27 @@ public class PlayerMovement : MonoBehaviour
         myRB.position += input;
 
         if (input.x != 0 || input.z != 0)
+            Footstep();
+    }
+
+    void Staff()
+    {
+        if (hasStaff && Input.GetKeyDown(staffKey))
         {
-            if (!startedAudio)
-            {
-                source.Play();
-                startedAudio = true;
-            }
+            source.PlayTap();
         }
-        else
+    }
+
+    void Footstep()
+    {
+        if (hasShoes)
         {
-            source.Stop();
-            startedAudio = false;
+            stepTimer -= Time.deltaTime;
+            if (stepTimer <= 0)
+            {
+                source.PlayFootstep();
+                stepTimer = Random.Range(minStepTime, maxStepTime);
+            }
         }
     }
 }
