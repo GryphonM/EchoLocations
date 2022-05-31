@@ -15,11 +15,14 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody myRB;
     Vector2 rotation;
+    AudioSource source;
+    bool startedAudio = false;
 
     // Start is called before the first frame update
     void Start()
     {
         myRB = GetComponent<Rigidbody>();
+        source = GetComponent<AudioSource>();
         Cursor.lockState = CursorLockMode.Locked;
         rotation = new Vector2(transform.rotation.x, Camera.transform.rotation.y);
     }
@@ -55,5 +58,19 @@ public class PlayerMovement : MonoBehaviour
         input *= Time.deltaTime * speed;
         input = transform.TransformDirection(input);
         myRB.position += input;
+
+        if (input.x != 0 || input.z != 0)
+        {
+            if (!startedAudio)
+            {
+                source.Play();
+                startedAudio = true;
+            }
+        }
+        else
+        {
+            source.Stop();
+            startedAudio = false;
+        }
     }
 }
