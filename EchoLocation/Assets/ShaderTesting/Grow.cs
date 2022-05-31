@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class Grow : MonoBehaviour
 {
-    [SerializeField]
-    float speed = 1;
-    [SerializeField]
-    float finalSize = 1;
-    [SerializeField]
-    float lingerDuration = 1;
-    [SerializeField]
-    float dimSpeed = 1;
+    public float speed = 1;
+    public float finalSize = 1;
+    public float lingerDuration = 1;
+    public float dimSpeed = 1;
     [SerializeField]
     LightScaler lightScaler;
+    [SerializeField]
+    bool loop = false;
     float timer;
-    float timer2;
     float oldIntensity;
     float startSize;
     bool startFading = false;
@@ -35,10 +32,15 @@ public class Grow : MonoBehaviour
             transform.localScale = new Vector3(timer, timer, timer);
             if (transform.localScale.x <= startSize)
             {
-                timer = 0;
-                transform.localScale = new Vector3(startSize, startSize, startSize);
-                lightScaler.lightComp.intensity = oldIntensity;
-                startFading = false;
+                if (loop)
+                {
+                    timer = 0;
+                    transform.localScale = new Vector3(startSize, startSize, startSize);
+                    lightScaler.lightComp.intensity = oldIntensity;
+                    startFading = false;
+                }
+                else
+                    Destroy(gameObject);
             }
         }
         else
