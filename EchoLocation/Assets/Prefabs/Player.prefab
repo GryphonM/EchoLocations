@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 9132965442364551818}
   - component: {fileID: 9132965442364551821}
   - component: {fileID: 9132965442364551819}
+  - component: {fileID: 4360175325693198214}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -122,6 +123,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e4fe0de6c3607bc4aa5c28b8905ac4fa, type: 3}
   - {fileID: 8300000, guid: c9cf1540b4866ee41a37cb619fc8f39b, type: 3}
   soundSource: {fileID: 2395526724093463797, guid: 83d54f6afae5fdb49aa8de9e56f44810, type: 3}
+  ignoreChecks: 0
   speed: 10
   finalSize: 5
   lingerDuration: 0.2
@@ -153,6 +155,7 @@ MonoBehaviour:
   Camera: {fileID: 9132965442390003811}
   hasShoes: 0
   hasStaff: 0
+  puzzleWait: 0
 --- !u!54 &9132965442364551821
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -265,6 +268,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4360175325693198214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9132965442364551808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e930c0bd13bd9074d9958f9d48c8d8f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactDistance: 5
+  interactKey: 101
+  interactMask:
+    serializedVersion: 2
+    m_Bits: 8
+  tooltip: {fileID: 0}
+  canvas: {fileID: 0}
+  Camera: {fileID: 9132965442390003811}
 --- !u!1 &9132965442390003811
 GameObject:
   m_ObjectHideFlags: 0
