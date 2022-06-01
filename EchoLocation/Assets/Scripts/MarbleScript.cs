@@ -9,9 +9,11 @@ public class MarbleScript : MonoBehaviour
     float timer = 0;
     public float AntiNoiseSpamTimer;
     bool delayOver = true;
+    SoundPlayer soundThing;
     // Start is called before the first frame update
     void Start()
     {
+        soundThing = this.GetComponent<SoundPlayer>();
         rb = this.GetComponent<Rigidbody>();
         //ball wont move unless i do this nonsense \/
         rb.isKinematic = true;
@@ -37,7 +39,7 @@ public class MarbleScript : MonoBehaviour
         {
             if (rb.velocity.magnitude > speedToMakeNoise && delayOver)
             {
-                Debug.Log("soundGo");
+                soundThing.PlaySound();
                 delayOver = false;
             }
         }
