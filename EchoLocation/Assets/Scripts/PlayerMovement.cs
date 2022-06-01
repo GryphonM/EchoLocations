@@ -25,9 +25,6 @@ public class PlayerMovement : MonoBehaviour
     public bool hasShoes;
     public bool hasStaff;
 
-    [HideInInspector]
-    public bool inPuzzle = false;
-
     Rigidbody myRB;
     Vector2 rotation;
     PlayerSound source;
@@ -46,12 +43,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!inPuzzle)
-        {
-            MoveCamera();
-            MovePlayer();
-            Staff();
-        }
+        MoveCamera();
+        MovePlayer();
+        Staff();
     }
 
     void MoveCamera()

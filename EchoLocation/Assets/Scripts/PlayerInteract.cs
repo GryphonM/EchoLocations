@@ -27,8 +27,7 @@ public class PlayerInteract : MonoBehaviour
         {
             if (obj.collider.CompareTag("Puzzle"))
             {
-
-                //obj.collider.GetComponent<Puzzle>().StartPuzzle();
+                obj.collider.GetComponent<Puzzle>().StartPuzzle(gameObject);
             }
             else if (obj.collider.CompareTag("Door"))
             {
