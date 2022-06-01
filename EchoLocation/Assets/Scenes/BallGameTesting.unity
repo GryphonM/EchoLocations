@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 117047251}
   - component: {fileID: 117047255}
   - component: {fileID: 117047256}
+  - component: {fileID: 117047257}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -252,6 +253,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedToMakeNoise: 0
   AntiNoiseSpamTimer: 0
+--- !u!114 &117047257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117047250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d61bdab66c16e94e9c5c13cd31e566f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips: []
+  soundSource: {fileID: 2395526724093463797, guid: 83d54f6afae5fdb49aa8de9e56f44810, type: 3}
+  ignoreChecks: 0
+  speed: 1
+  finalSize: 1
+  lingerDuration: 1
+  dimSpeed: 1
 --- !u!1 &520173109
 GameObject:
   m_ObjectHideFlags: 0
