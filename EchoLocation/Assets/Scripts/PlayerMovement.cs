@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 rotation;
     PlayerSound source;
     float stepTimer;
+    [HideInInspector] public bool puzzleWait = false;
 
     // Start is called before the first frame update
     void Start()
@@ -43,9 +44,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoveCamera();
-        MovePlayer();
-        Staff();
+        if (!puzzleWait)
+        {
+            MoveCamera();
+            MovePlayer();
+            Staff();
+        }
     }
 
     void MoveCamera()

@@ -2,27 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Marble : MonoBehaviour
+public class Marble : Puzzle
 {
-    SoundPlayer player;
+    public float waitTime;
+    public float timer;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        player = GetComponent<SoundPlayer>();
-    }
+    bool gameActive = false;
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (gameActive)
         {
-            GetComponent<Rigidbody>().AddForce(new Vector3(0, 200, 0));
+            timer += Time.deltaTime;
+            if (timer >= waitTime)
+                EndGame();
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public override void StartGame()
     {
-        player.PlaySound();
+        gameActive = true;
+    }
+
+    public void EndGame()
+    {
+        gameActive = false;
+        gameObject.tag = "";
+        EndPuzzle();
     }
 }

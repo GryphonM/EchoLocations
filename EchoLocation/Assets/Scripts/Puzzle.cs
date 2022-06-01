@@ -19,5 +19,11 @@ public abstract class Puzzle : MonoBehaviour
         StartGame();
     }
 
+    public void EndPuzzle()
+    {
+        puzzleCam.SetActive(false);
+        player.SetActive(true);
+    }
+
     public abstract void StartGame();
 }

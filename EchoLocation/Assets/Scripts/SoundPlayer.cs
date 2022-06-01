@@ -8,6 +8,8 @@ public class SoundPlayer : MonoBehaviour
     protected List<AudioClip> audioClips;
     [SerializeField]
     protected GameObject soundSource;
+    [SerializeField]
+    bool ignoreChecks = false;
 
     [Space(10)]
 
@@ -29,5 +31,6 @@ public class SoundPlayer : MonoBehaviour
         sound.GetComponent<Grow>().finalSize = finalSize;
         sound.GetComponent<Grow>().lingerDuration = lingerDuration;
         sound.GetComponent<Grow>().dimSpeed = dimSpeed;
+        sound.GetComponent<Grow>().ignoreChecks = ignoreChecks;
     }
 }

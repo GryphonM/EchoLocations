@@ -12,6 +12,8 @@ public class Grow : MonoBehaviour
     LightScaler lightScaler;
     [SerializeField]
     bool loop = false;
+    [HideInInspector]
+    public bool ignoreChecks = false;
     float timer;
     float oldIntensity;
     float startSize;
