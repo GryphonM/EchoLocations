@@ -216,7 +216,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 117047250}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 7.050002, y: 1.876, z: 7.5720005}
+  m_LocalPosition: {x: 7.72, y: 1.876, z: 7.48}
   m_LocalScale: {x: 1.4999996, y: 1.5, z: 1.4999996}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -271,7 +271,7 @@ MonoBehaviour:
   soundSource: {fileID: 2395526724093463797, guid: 016b15196904a604e980e43c4e7756eb, type: 3}
   ignoreChecks: 0
   speed: 7
-  finalSize: 8
+  finalSize: 9
   lingerDuration: 0.5
   dimSpeed: 3
 --- !u!1 &461963410
@@ -300,14 +300,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461963410}
-  m_LocalRotation: {x: -0, y: -0.9997473, z: -0, w: -0.022481082}
-  m_LocalPosition: {x: -0.9176, y: 1.03, z: 1.73}
-  m_LocalScale: {x: 1.3209416, y: 3.0639, z: 8.380028}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
+  m_LocalPosition: {x: -0.76, y: 1.03, z: 1.3972}
+  m_LocalScale: {x: 1.3209416, y: 3.0639, z: 8.26606}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 520173110}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: -182.576, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!65 &461963412
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -552,14 +552,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 647832390}
-  m_LocalRotation: {x: -0, y: -0.9997473, z: -0, w: -0.022481082}
-  m_LocalPosition: {x: -7.8083, y: 1.03, z: 4.3786}
-  m_LocalScale: {x: 1.3209416, y: 3.0639, z: 13.826147}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
+  m_LocalPosition: {x: -7.48, y: 1.03, z: 4.26}
+  m_LocalScale: {x: 1.3209416, y: 3.0639, z: 14.055661}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 520173110}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: -182.576, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!65 &647832392
 BoxCollider:
   m_ObjectHideFlags: 0
