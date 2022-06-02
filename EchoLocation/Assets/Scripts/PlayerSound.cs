@@ -4,24 +4,28 @@ using UnityEngine;
 
 public class PlayerSound : SoundPlayer
 {
+    [SerializeField]
+    float footstepOffset;
     [Space(10)]
 
     [SerializeField]
     AudioClip staffTap;
     [SerializeField]
-    protected float staffSpeed = 1;
+    float staffSpeed = 1;
     [SerializeField]
-    protected float staffFinalSize = 1;
+    float staffFinalSize = 1;
     [SerializeField]
-    protected float staffLingerDuration = 1;
+    float staffLingerDuration = 1;
     [SerializeField]
-    protected float staffDimSpeed = 1;
+    float staffDimSpeed = 1;
+    [SerializeField]
+    float staffOffset;
 
     public void PlayFootstep()
     {
         GameObject sound = Instantiate(soundSource, transform);
         Vector3 pos = transform.position;
-        pos.y -= transform.localScale.y;
+        pos.y -= footstepOffset;
         sound.transform.position = pos;
         sound.GetComponent<AudioSource>().PlayOneShot(audioClips[Random.Range(0, audioClips.Count - 1)]);
         sound.GetComponent<Grow>().speed = speed;
@@ -34,7 +38,7 @@ public class PlayerSound : SoundPlayer
     {
         GameObject sound = Instantiate(soundSource);
         Vector3 pos = transform.position;
-        pos.y -= transform.localScale.y;
+        pos.y -= staffOffset;
         sound.transform.position = pos;
         sound.GetComponent<AudioSource>().PlayOneShot(staffTap);
         sound.GetComponent<Grow>().speed = staffSpeed;

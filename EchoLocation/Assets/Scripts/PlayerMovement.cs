@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     KeyCode staffKey = KeyCode.Mouse0;
     [SerializeField]
+    float staffDelay;
+    [SerializeField]
     GameObject Camera;
 
     public bool hasShoes;
@@ -29,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 rotation;
     PlayerSound source;
     float stepTimer;
+    float staffTimer = 0;
     [HideInInspector] public bool puzzleWait = false;
 
     // Start is called before the first frame update
@@ -85,8 +88,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (hasStaff && Input.GetKeyDown(staffKey))
         {
-            source.PlayTap();
+            if (staffTimer <= 0)
+            {
+                source.PlayTap();
+                staffTimer = staffDelay;
+            }
         }
+        if (staffTimer > 0)
+            staffTimer -= Time.deltaTime;
     }
 
     void Footstep()
