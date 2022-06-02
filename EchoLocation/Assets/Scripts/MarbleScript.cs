@@ -6,7 +6,7 @@ public class MarbleScript : MonoBehaviour
 {
     public float speedToMakeNoise;
     Rigidbody rb;
-    float timer = 0;
+    public float rbVelocity;
     public float AntiNoiseSpamTimer;
     bool delayOver = true;
     SoundPlayer soundThing;
@@ -23,25 +23,24 @@ public class MarbleScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!delayOver)
-        {
-            timer += Time.deltaTime;
-        }
-        if (timer > AntiNoiseSpamTimer)
-        {
-            delayOver = true;
-        }
+        rbVelocity = rb.velocity.magnitude; 
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Wall")
+        if (collision.gameObject.tag == "Wall" && delayOver == true)
         {
-            if (rb.velocity.magnitude > speedToMakeNoise && delayOver)
-            {
-                soundThing.PlaySound();
+            if (rb.velocity.magnitude > speedToMakeNoise)
+            {                
+                Invoke("delaySound", AntiNoiseSpamTimer);
                 delayOver = false;
+                soundThing.PlaySound();
             }
         }
+    }
+
+    void delaySound()
+    {
+        delayOver = true;
     }
 }
