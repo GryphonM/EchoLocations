@@ -16,7 +16,7 @@ public class SoundPlayer : MonoBehaviour
     [SerializeField]
     protected float speed = 1;
     [SerializeField]
-    protected float finalSize = 1;
+    public float finalSize = 1;
     [SerializeField]
     protected float lingerDuration = 1;
     [SerializeField]
