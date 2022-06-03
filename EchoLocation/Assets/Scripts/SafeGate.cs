@@ -6,9 +6,13 @@ public class SafeGate : MonoBehaviour
 {
     [SerializeField]
     float correctGateScaleMultiplier = 1.2f;
+    [SerializeField]
+    int ammountOfPins = 1;
     public bool isCorrectGate = false;
     public bool gateTriggered = false;
+    public bool safeCracked = false;
     SoundPlayer soundThing;
+    bool isSelected;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,20 +22,42 @@ public class SafeGate : MonoBehaviour
             soundThing.finalSize = soundThing.finalSize * correctGateScaleMultiplier;
         }
     }
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-        if (other.gameObject.tag == "KnobPointer")
+        if (gateTriggered)
         {
-            soundThing.PlaySound();
+            gateTriggered = false;
+            ammountOfPins -= 1;
+            if (ammountOfPins <= 0)
+            {
+                safeCracked = true;
+            }
+            else
+            {
+                this.transform.parent.transform.rotation = Quaternion.Euler(0, 22.5f * Random.Range(4, 12), 0);
+            }
         }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (isCorrectGate && Input.GetKeyDown(KeyCode.E))
+        if (isCorrectGate && Input.GetKeyDown(KeyCode.E) && isSelected)
         {
             soundThing.PlaySound();
             gateTriggered = true;
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "KnobPointer")
+        {
+            isSelected = true;
+            soundThing.PlaySound();
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "KnobPointer")
+        {
+            isSelected = false;
+        }
+    }
+
+
 }
