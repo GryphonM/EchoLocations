@@ -255,8 +255,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctGateScaleMultiplier: 1.2
+  ammountOfPins: 1
   isCorrectGate: 0
   gateTriggered: 0
+  safeCracked: 0
 --- !u!1 &69553974
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,7 +282,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69553974}
-  m_LocalRotation: {x: -0, y: -0.20499687, z: -0, w: 0.9787626}
+  m_LocalRotation: {x: 0, y: -0.20499994, z: 0, w: 0.97876203}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 2.55, z: 5}
   m_ConstrainProportionsScale: 0
@@ -319,7 +321,7 @@ GameObject:
   - component: {fileID: 85838560}
   - component: {fileID: 85838559}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Correct Pin
   m_TagString: LockGate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -436,8 +438,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctGateScaleMultiplier: 1.2
+  ammountOfPins: 3
   isCorrectGate: 1
   gateTriggered: 0
+  safeCracked: 0
 --- !u!1 &112996240
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,8 +574,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctGateScaleMultiplier: 1.2
+  ammountOfPins: 1
   isCorrectGate: 0
   gateTriggered: 0
+  safeCracked: 0
 --- !u!1 &327873832
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,8 +710,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctGateScaleMultiplier: 1.2
+  ammountOfPins: 1
   isCorrectGate: 0
   gateTriggered: 0
+  safeCracked: 0
 --- !u!1 &331042297
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,8 +846,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctGateScaleMultiplier: 1.2
+  ammountOfPins: 1
   isCorrectGate: 0
   gateTriggered: 0
+  safeCracked: 0
 --- !u!1 &391794768
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,8 +1096,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctGateScaleMultiplier: 1.2
+  ammountOfPins: 1
   isCorrectGate: 0
   gateTriggered: 0
+  safeCracked: 0
 --- !u!1 &524054130
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,8 +1232,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctGateScaleMultiplier: 1.2
+  ammountOfPins: 1
   isCorrectGate: 0
   gateTriggered: 0
+  safeCracked: 0
 --- !u!1 &844744990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,8 +1368,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctGateScaleMultiplier: 1.2
+  ammountOfPins: 1
   isCorrectGate: 0
   gateTriggered: 0
+  safeCracked: 0
 --- !u!1 &1056489072
 GameObject:
   m_ObjectHideFlags: 0
@@ -1488,8 +1504,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctGateScaleMultiplier: 1.2
+  ammountOfPins: 1
   isCorrectGate: 0
   gateTriggered: 0
+  safeCracked: 0
 --- !u!1 &1079591203
 GameObject:
   m_ObjectHideFlags: 0
@@ -1722,8 +1740,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctGateScaleMultiplier: 1.2
+  ammountOfPins: 1
   isCorrectGate: 0
   gateTriggered: 0
+  safeCracked: 0
 --- !u!1 &1268835061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1856,8 +1876,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctGateScaleMultiplier: 1.2
+  ammountOfPins: 1
   isCorrectGate: 0
   gateTriggered: 0
+  safeCracked: 0
 --- !u!1 &1318031517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2362,8 +2384,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctGateScaleMultiplier: 1.2
+  ammountOfPins: 1
   isCorrectGate: 0
   gateTriggered: 0
+  safeCracked: 0
 --- !u!1 &2015039054
 GameObject:
   m_ObjectHideFlags: 0
@@ -2496,8 +2520,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctGateScaleMultiplier: 1.2
+  ammountOfPins: 1
   isCorrectGate: 0
   gateTriggered: 0
+  safeCracked: 0
 --- !u!1 &2048866222
 GameObject:
   m_ObjectHideFlags: 0
@@ -2630,8 +2656,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctGateScaleMultiplier: 1.2
+  ammountOfPins: 1
   isCorrectGate: 0
   gateTriggered: 0
+  safeCracked: 0
 --- !u!1 &2101572157
 GameObject:
   m_ObjectHideFlags: 0
@@ -2764,8 +2792,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctGateScaleMultiplier: 1.2
+  ammountOfPins: 1
   isCorrectGate: 0
   gateTriggered: 0
+  safeCracked: 0
 --- !u!1 &2102139401
 GameObject:
   m_ObjectHideFlags: 0
@@ -2898,5 +2928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctGateScaleMultiplier: 1.2
+  ammountOfPins: 1
   isCorrectGate: 0
   gateTriggered: 0
+  safeCracked: 0
