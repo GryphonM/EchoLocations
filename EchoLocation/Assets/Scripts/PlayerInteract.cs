@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class PlayerInteract : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class PlayerInteract : MonoBehaviour
     void Start()
     {
         move = GetComponent<PlayerMovement>();
+        tooltip.GetComponent<TextMeshProUGUI>().text = ChangeControl.ConvertToString(interactKey) + ": Interact";
     }
 
     // Update is called once per frame
@@ -56,21 +58,28 @@ public class PlayerInteract : MonoBehaviour
             RaycastHit obj;
             if (Physics.Raycast(Camera.transform.position, Camera.transform.forward, out obj, interactDistance, interactMask))
             {
-                if (obj.collider.CompareTag("Puzzle"))
+                tooltip.SetActive(true);
+                if (Input.GetKeyDown(interactKey))
                 {
-                    tooltip.SetActive(true);
-                    if (Input.GetKeyDown(interactKey))
+                    if (obj.collider.CompareTag("Puzzle"))
                     {
                         move.puzzleWait = true;
                         startPuzzle = true;
                         curPuzzle = obj.collider.gameObject;
                     }
-                }
-                else if (obj.collider.CompareTag("Door"))
-                {
-
+                    else if (obj.collider.CompareTag("Door"))
+                    {
+                        if (obj.collider.GetComponentInParent<Door>().keyCollected)
+                            obj.collider.GetComponentInParent<Door>().OpenDoor();
+                    }
+                    else if (obj.collider.CompareTag("Key"))
+                    {
+                        obj.collider.GetComponent<Key>().PickUp();
+                    }
                 }
             }
+            else
+                tooltip.SetActive(false);
         }
     }
 }
