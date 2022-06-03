@@ -10,8 +10,6 @@ public class Door : MonoBehaviour
     public float lerpRate = .1f;
     void Update()
     {
-        if (keyCollected == true)
-            OpenDoor();
         if (isOpen == true)
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, desiredAngle, 0), lerpRate);
@@ -33,6 +31,7 @@ public class Door : MonoBehaviour
         if (isOpen == false)
         {
             isOpen = true;
+            transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Default");
         }
     }
 }

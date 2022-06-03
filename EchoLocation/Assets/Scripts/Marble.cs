@@ -28,7 +28,7 @@ public class Marble : Puzzle
     public void EndGame()
     {
         gameActive = false;
-        gameObject.tag = "";
+        gameObject.layer = LayerMask.NameToLayer("Default");
         EndPuzzle();
     }
 }
