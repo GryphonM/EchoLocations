@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class MazeRotation : MonoBehaviour
 {
-    [SerializeField]
-    float rotationSpeed;
+    public float rotationSpeed;
     [SerializeField]
     float maxAngle;
     [SerializeField]
