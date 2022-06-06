@@ -26,7 +26,7 @@ public class Clock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!Puzzle.inPuzzle)
+        if (!Puzzle.inPuzzle && !MenuManager.paused)
         {
             timer -= Time.deltaTime;
             if (timer <= 0)

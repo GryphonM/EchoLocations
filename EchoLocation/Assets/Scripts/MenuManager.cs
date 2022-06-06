@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
+    public static bool paused;
     public GameObject player;
+    public AudioSource ambience;
     void Start()
     {
-        player.GetComponent<PlayerMovement>().enabled = false;
         PauseGame();
     }
     void Update()
@@ -16,11 +17,16 @@ public class MenuManager : MonoBehaviour
     }
     public void PauseGame()
     {
+        player.GetComponent<PlayerMovement>().enabled = false;
+        paused = true;
         Time.timeScale = 0;
+        ambience.Stop();
     }
     public void ResumeGame()
     {
         Time.timeScale = 1;
+        paused = false;
+        ambience.Play();
         hideUI();
     }
 
