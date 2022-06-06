@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
+    public GameObject player;
     void Start()
     {
+        player.GetComponent<PlayerMovement>().enabled = false;
         PauseGame();
     }
     void Update()
@@ -24,6 +26,7 @@ public class MenuManager : MonoBehaviour
 
     void hideUI()
     {
+        player.GetComponent<PlayerMovement>().enabled = true;
         this.gameObject.SetActive(false);
     }
 }
