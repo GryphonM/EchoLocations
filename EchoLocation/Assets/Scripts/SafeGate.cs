@@ -34,7 +34,7 @@ public class SafeGate : MonoBehaviour
             }
             else
             {
-                this.transform.parent.transform.rotation = Quaternion.Euler(0, 22.5f * Random.Range(4, 12), 0);
+                this.transform.parent.transform.parent.transform.rotation = Quaternion.Euler(0, 22.5f * Random.Range(4, 12), 0);
             }
         }
         if (isCorrectGate && Input.GetKeyDown(KeyCode.E) && isSelected)
