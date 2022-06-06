@@ -55,6 +55,7 @@ public class PlayerInteract : MonoBehaviour
         }
         else
         {
+            canvas.SetActive(true);
             RaycastHit obj;
             if (Physics.Raycast(Camera.transform.position, Camera.transform.forward, out obj, interactDistance, interactMask))
             {

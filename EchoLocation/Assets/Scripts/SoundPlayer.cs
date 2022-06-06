@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class SoundPlayer : MonoBehaviour
 {
-    [SerializeField]
-    protected List<AudioClip> audioClips;
+    public List<AudioClip> audioClips;
     [SerializeField]
     protected GameObject soundSource;
     [SerializeField]
