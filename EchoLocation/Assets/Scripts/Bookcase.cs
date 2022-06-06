@@ -10,10 +10,12 @@ public class Bookcase : MonoBehaviour
     [SerializeField]
     float speed;
 
+    SoundPlayer player;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GetComponent<SoundPlayer>();
     }
 
     // Update is called once per frame
@@ -26,5 +28,11 @@ public class Bookcase : MonoBehaviour
             else
                 transform.position = finalPos;
         }
+    }
+
+    public void OpenBookcase()
+    {
+        openBookcase = true;
+        player.PlaySound();
     }
 }

@@ -26,11 +26,14 @@ public class Clock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
-        if (timer <= 0)
+        if (!Puzzle.inPuzzle)
         {
-            timer = tick;
-            player.PlaySound();
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                timer = tick;
+                player.PlaySound();
+            }
         }
     }
 }
