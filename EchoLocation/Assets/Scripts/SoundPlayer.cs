@@ -9,6 +9,8 @@ public class SoundPlayer : MonoBehaviour
     [SerializeField]
     protected GameObject soundSource;
     [SerializeField]
+    bool parent;
+    [SerializeField]
     bool ignoreChecks = false;
 
     [Space(10)]
@@ -32,5 +34,7 @@ public class SoundPlayer : MonoBehaviour
         sound.GetComponent<Grow>().lingerDuration = lingerDuration;
         sound.GetComponent<Grow>().dimSpeed = dimSpeed;
         sound.GetComponent<Grow>().ignoreChecks = ignoreChecks;
+        if (parent)
+            sound.transform.SetParent(transform);
     }
 }

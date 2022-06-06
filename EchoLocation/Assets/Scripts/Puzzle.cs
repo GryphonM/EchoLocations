@@ -4,18 +4,20 @@ using UnityEngine;
 
 public abstract class Puzzle : MonoBehaviour
 {
+    public static bool inPuzzle = false;
     [SerializeField]
-    GameObject puzzle;
+    protected GameObject puzzle;
     [SerializeField]
     GameObject puzzleCam;
 
-    GameObject player;
+    protected GameObject player;
 
     public void StartPuzzle(GameObject player_)
     {
         player = player_;
         player.SetActive(false);
         puzzleCam.SetActive(true);
+        inPuzzle = true;
         StartGame();
     }
 
@@ -23,6 +25,7 @@ public abstract class Puzzle : MonoBehaviour
     {
         puzzleCam.SetActive(false);
         player.SetActive(true);
+        inPuzzle = false;
     }
 
     public abstract void StartGame();

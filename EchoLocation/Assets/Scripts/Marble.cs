@@ -4,31 +4,20 @@ using UnityEngine;
 
 public class Marble : Puzzle
 {
-    public float waitTime;
-    public float timer;
-
-    bool gameActive = false;
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (gameActive)
-        {
-            timer += Time.deltaTime;
-            if (timer >= waitTime)
-                EndGame();
-        }
-    }
+    [SerializeField]
+    Bookcase bookcase;
 
     public override void StartGame()
     {
-        gameActive = true;
+        puzzle.SetActive(true);
     }
 
     public void EndGame()
     {
-        gameActive = false;
         gameObject.layer = LayerMask.NameToLayer("Default");
+        puzzle.SetActive(false);
+        player.GetComponent<PlayerMovement>().hasShoes = true;
+        bookcase.OpenBookcase();
         EndPuzzle();
     }
 }

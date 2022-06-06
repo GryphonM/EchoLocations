@@ -49,8 +49,8 @@ public class PlayerInteract : MonoBehaviour
             {
                 move.puzzleWait = false;
                 startPuzzle = false;
-                curPuzzle.GetComponent<Puzzle>().StartPuzzle(gameObject);
                 canvas.SetActive(false);
+                curPuzzle.GetComponent<Puzzle>().StartPuzzle(gameObject);
             }
         }
         else
