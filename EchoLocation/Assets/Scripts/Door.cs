@@ -8,6 +8,7 @@ public class Door : MonoBehaviour
     public float desiredAngle = 90;
     bool isOpen = false;
     public float lerpRate = .1f;
+    [SerializeField] AudioClip unlockSound;
     [SerializeField] AudioClip openSound;
     SoundPlayer source;
 
@@ -20,7 +21,7 @@ public class Door : MonoBehaviour
     {
         if (isOpen == true)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, desiredAngle, 0), lerpRate);
+            transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(0, desiredAngle, 0), lerpRate);
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -34,12 +35,14 @@ public class Door : MonoBehaviour
         }
 
     }
-    public void OpenDoor()
+    public IEnumerator OpenDoor()
     {
         if (isOpen == false)
         {
-            isOpen = true;
             transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Default");
+            source.PlaySound(unlockSound);
+            yield return new WaitForSeconds(unlockSound.length);
+            isOpen = true;
             source.PlaySound(openSound);
         }
     }

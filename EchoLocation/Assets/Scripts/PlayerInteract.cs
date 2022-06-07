@@ -71,7 +71,7 @@ public class PlayerInteract : MonoBehaviour
                     else if (obj.collider.CompareTag("Door"))
                     {
                         if (obj.collider.GetComponentInParent<Door>().keyCollected)
-                            obj.collider.GetComponentInParent<Door>().OpenDoor();
+                            StartCoroutine(obj.collider.GetComponentInParent<Door>().OpenDoor());
                     }
                     else if (obj.collider.CompareTag("Key"))
                     {

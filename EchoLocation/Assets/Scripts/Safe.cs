@@ -17,8 +17,8 @@ public class Safe : Puzzle
         gameObject.layer = LayerMask.NameToLayer("Default");
         puzzle.SetActive(false);
         player.GetComponent<PlayerMovement>().hasStaff = true;
-        bookcase.openBookcase = true;
-        SoundPlayer.PlayOneShotDelayed(complete, complete.length, source);
+        bookcase.OpenBookcase();
+        StartCoroutine(SoundPlayer.PlayOneShotDelayed(complete, complete.length, source));
         EndPuzzle();
     }
 }

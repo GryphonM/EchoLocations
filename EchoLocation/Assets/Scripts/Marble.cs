@@ -6,6 +6,8 @@ public class Marble : Puzzle
 {
     [SerializeField]
     Bookcase bookcase;
+    [SerializeField]
+    AudioClip ShoesDropping;
 
     public override void StartGame()
     {
@@ -17,7 +19,8 @@ public class Marble : Puzzle
         gameObject.layer = LayerMask.NameToLayer("Default");
         puzzle.SetActive(false);
         player.GetComponent<PlayerMovement>().hasShoes = true;
-        source.PlaySound(complete);
+        source.PlaySound(ShoesDropping);
+        StartCoroutine(SoundPlayer.PlayOneShotDelayed(complete, ShoesDropping.length, source));
         bookcase.OpenBookcase();
         EndPuzzle();
     }
