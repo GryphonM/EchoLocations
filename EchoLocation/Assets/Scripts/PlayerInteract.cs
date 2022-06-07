@@ -65,6 +65,7 @@ public class PlayerInteract : MonoBehaviour
                     if (obj.collider.CompareTag("Puzzle"))
                     {
                         move.puzzleWait = true;
+                        tooltip.SetActive(false);
                         startPuzzle = true;
                         curPuzzle = obj.collider.gameObject;
                     }
