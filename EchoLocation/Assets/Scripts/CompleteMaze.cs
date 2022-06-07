@@ -12,6 +12,8 @@ public class CompleteMaze : MonoBehaviour
     float endPause;
     [SerializeField]
     float rollWait;
+    [SerializeField]
+    AudioClip yay;
 
     float timer;
     float rollTimer;
@@ -30,6 +32,7 @@ public class CompleteMaze : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
+                smallMaze.GetComponent<SoundPlayer>().PlaySound(yay);
                 smallMaze.EndGame();
             }
         }
