@@ -22940,7 +22940,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzle: {fileID: 40367459}
   puzzleCam: {fileID: 438682941}
-  complete: {fileID: 8300000, guid: 9ede2605977487645ade9f25a16f0bde, type: 3}
+  complete: {fileID: 8300000, guid: 413dc29d31acc134197927be5d55b73c, type: 3}
 --- !u!114 &3134687030084599617
 MonoBehaviour:
   m_ObjectHideFlags: 0
