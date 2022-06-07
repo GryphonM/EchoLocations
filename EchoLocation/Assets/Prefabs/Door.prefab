@@ -107,6 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 365621346505355598}
   - component: {fileID: 365621346505354929}
+  - component: {fileID: -8095059435026007175}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -145,3 +146,24 @@ MonoBehaviour:
   keyCollected: 0
   desiredAngle: 90
   lerpRate: 0.02
+  openSound: {fileID: 8300000, guid: 58eea20094ebb0443a1ca8719789a43e, type: 3}
+--- !u!114 &-8095059435026007175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365621346505354928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d61bdab66c16e94e9c5c13cd31e566f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips: []
+  soundSource: {fileID: 2395526724093463797, guid: 83d54f6afae5fdb49aa8de9e56f44810, type: 3}
+  parent: 0
+  ignoreChecks: 0
+  speed: 12
+  finalSize: 7.5
+  lingerDuration: 0.5
+  dimSpeed: 10

@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Safe : Puzzle
 {
-    [SerializeField] AudioClip getStaff;
-    AudioSource source;
+    Bookcase bookcase;
 
     public override void StartGame()
     {
         puzzle.SetActive(true);
-        source = GetComponent<AudioSource>();
+        bookcase = GetComponent<Bookcase>();
     }
 
     public void EndGame()
@@ -18,6 +17,8 @@ public class Safe : Puzzle
         gameObject.layer = LayerMask.NameToLayer("Default");
         puzzle.SetActive(false);
         player.GetComponent<PlayerMovement>().hasStaff = true;
+        bookcase.openBookcase = true;
+        SoundPlayer.PlayOneShotDelayed(complete, complete.length, source);
         EndPuzzle();
     }
 }

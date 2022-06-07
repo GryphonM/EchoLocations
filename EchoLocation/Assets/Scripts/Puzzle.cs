@@ -9,8 +9,16 @@ public abstract class Puzzle : MonoBehaviour
     protected GameObject puzzle;
     [SerializeField]
     GameObject puzzleCam;
+    [SerializeField]
+    protected AudioClip complete;
 
     protected GameObject player;
+    protected SoundPlayer source;
+
+    private void Start()
+    {
+        source = GetComponent<SoundPlayer>();
+    }
 
     public void StartPuzzle(GameObject player_)
     {

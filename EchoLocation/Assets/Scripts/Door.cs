@@ -8,6 +8,14 @@ public class Door : MonoBehaviour
     public float desiredAngle = 90;
     bool isOpen = false;
     public float lerpRate = .1f;
+    [SerializeField] AudioClip openSound;
+    SoundPlayer source;
+
+    private void Start()
+    {
+        source = GetComponent<SoundPlayer>();
+    }
+
     void Update()
     {
         if (isOpen == true)
@@ -32,6 +40,7 @@ public class Door : MonoBehaviour
         {
             isOpen = true;
             transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Default");
+            source.PlaySound(openSound);
         }
     }
 }

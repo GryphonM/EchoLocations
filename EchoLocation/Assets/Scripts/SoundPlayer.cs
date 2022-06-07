@@ -25,9 +25,14 @@ public class SoundPlayer : MonoBehaviour
 
     public void PlaySound()
     {
+        PlaySound(audioClips[Random.Range(0, audioClips.Count - 1)]);
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
         GameObject sound = Instantiate(soundSource);
         sound.transform.position = transform.position;
-        sound.GetComponent<AudioSource>().PlayOneShot(audioClips[Random.Range(0, audioClips.Count - 1)]);
+        sound.GetComponent<AudioSource>().PlayOneShot(clip);
         sound.GetComponent<Grow>().speed = speed;
         sound.GetComponent<Grow>().finalSize = finalSize;
         sound.GetComponent<Grow>().lingerDuration = lingerDuration;
@@ -35,5 +40,11 @@ public class SoundPlayer : MonoBehaviour
         sound.GetComponent<Grow>().ignoreChecks = ignoreChecks;
         if (parent)
             sound.transform.SetParent(transform);
+    }
+
+    public static IEnumerator PlayOneShotDelayed(AudioClip clip, float delay, SoundPlayer source)
+    {
+        yield return new WaitForSeconds(delay);
+        source.PlaySound(clip);
     }
 }

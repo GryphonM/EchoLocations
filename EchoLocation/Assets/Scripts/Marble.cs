@@ -17,6 +17,7 @@ public class Marble : Puzzle
         gameObject.layer = LayerMask.NameToLayer("Default");
         puzzle.SetActive(false);
         player.GetComponent<PlayerMovement>().hasShoes = true;
+        source.PlaySound(complete);
         bookcase.OpenBookcase();
         EndPuzzle();
     }
