@@ -16,6 +16,7 @@ public class SafeGate : MonoBehaviour
     public AudioClip click;
     public AudioClip correct;
     public AudioClip incorrect;
+    public AudioClip yay;
     [SerializeField] float correctSize;
     float normalSize;
     SoundPlayer soundThing;
@@ -39,6 +40,7 @@ public class SafeGate : MonoBehaviour
             if (ammountOfPins <= 0)
             {
                 safeCracked = true;
+                safe.GetComponent<SoundPlayer>().PlaySound(yay);
                 safe.EndGame();
             }
             else
@@ -50,18 +52,14 @@ public class SafeGate : MonoBehaviour
         {
             if (isCorrectGate)
             {
-                soundThing.audioClips.Add(correct);
                 soundThing.finalSize = correctSize;
-                soundThing.PlaySound();
-                soundThing.audioClips.Clear();
+                soundThing.PlaySound(correct);
                 soundThing.finalSize = normalSize;
                 gateTriggered = true;
             }
             else
             {
-                soundThing.audioClips.Add(incorrect);
-                soundThing.PlaySound();
-                soundThing.audioClips.Clear();
+                soundThing.PlaySound(incorrect);
             }
         }
     }
@@ -70,9 +68,7 @@ public class SafeGate : MonoBehaviour
         if (other.gameObject.tag == "KnobPointer")
         {
             isSelected = true;
-            soundThing.audioClips.Add(click);
-            soundThing.PlaySound();
-            soundThing.audioClips.Clear();
+            soundThing.PlaySound(click);
         }
     }
     private void OnTriggerExit(Collider other)
