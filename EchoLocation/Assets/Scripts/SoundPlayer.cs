@@ -11,6 +11,8 @@ public class SoundPlayer : MonoBehaviour
     bool parent;
     [SerializeField]
     bool ignoreChecks = false;
+    [SerializeField]
+    Vector3 offset;
 
     [Space(10)]
 
@@ -31,7 +33,7 @@ public class SoundPlayer : MonoBehaviour
     public void PlaySound(AudioClip clip)
     {
         GameObject sound = Instantiate(soundSource);
-        sound.transform.position = transform.position;
+        sound.transform.position = transform.position + offset;
         sound.GetComponent<AudioSource>().PlayOneShot(clip);
         sound.GetComponent<Grow>().speed = speed;
         sound.GetComponent<Grow>().finalSize = finalSize;
