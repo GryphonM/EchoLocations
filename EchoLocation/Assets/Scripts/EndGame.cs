@@ -10,15 +10,26 @@ public class EndGame : MonoBehaviour
     [SerializeField]
     float waitTime;
 
+    bool end = false;
+
+    private void Update()
+    {
+        if (end)
+        {
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
             winScreen.SetActive(true);
-            other.gameObject.GetComponent<PlayerMovement>().enabled = false;
-            waitTime -= Time.deltaTime;
-            if (waitTime <= 0)
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            end = true;
+            FindObjectOfType<MenuManager>(true).PauseGame();
+            Time.timeScale = 1;
         }
     }
 }
